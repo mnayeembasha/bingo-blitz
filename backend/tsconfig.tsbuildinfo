@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/config.ts","./src/controllers/teckziteLoginHandler.ts","./src/middleware/teckziteUserMiddleware.ts","./src/models/teckziteUserModel.ts","./src/routes/teckziteRoutes.ts"],"version":"5.8.2"}
