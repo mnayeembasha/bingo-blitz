@@ -181,7 +181,7 @@ export const questions = [
   },
   {
     "id": "graph-traversal",
-    "topic": "Graph Algorithms",
+    "topic": "Graph Algorithms Medium",
     "text": "You are a prisoner trapped in a 10 × 10 grid. Some cells contain guards (you cannot pass through them), and some doors are locked (you need a key to open them). You can only move left, right, up, or down. You must find the shortest path from the top-left corner (0,0) to the bottom-right corner (9,9). You have only one key, and you must decide when to use it on a locked door. Which graph traversal technique should be used to find the shortest escape path?",
     "options": ["DFS (Depth-First Search)", "BFS (Breadth-First Search)", "Dijkstra's Algorithm", "A* (A-Star Algorithm)"],
     "difficulty": "medium"
@@ -251,7 +251,7 @@ export const questions = [
   },
   {
     "id": "bit-counting",
-    "topic": "Bit Manipulation",
+    "topic": "Bit Manipulation Hard",
     "text": "What is the time complexity of the following code? while (n > 0) { n = n & (n - 1); }",
     "options": ["O(N)", "O(log N)", "O(√N)", "O(1)"],
     "difficulty": "hard"
@@ -279,7 +279,7 @@ export const questions = [
   },
   {
     "id": "bit-clearing",
-    "topic": "Bit Manipulation",
+    "topic": "Bit Manipulation Easy",
     "text": "How do you clear the k-th bit of a number n?",
     "options": ["n | (1 << k)", "n & ~(1 << k)", "n ^ (1 << k)", "n + (1 << k)"],
     "difficulty": "easy"
@@ -335,7 +335,7 @@ export const questions = [
   },
   {
     "id": "lock-sequence",
-    "topic": "Graph Algorithms",
+    "topic": "Graph Algorithms Hard",
     "text": "A security system uses a lock that requires a sequence of digits from 0-9. However, you can only enter a sequence where each digit appears exactly once before unlocking it. To generate the shortest possible valid input that unlocks the system, which algorithm should be used?",
     "options": ["Eulerian Path Construction", "Greedy Huffman Encoding", "Kruskal's Algorithm", "Dynamic Programming"],
     "difficulty": "hard"
