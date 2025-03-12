@@ -3,6 +3,8 @@ import { addTeckziteIds, getMe, signOut, teckziteLoginHandler } from "../control
 import { isTeckziteUser } from "../middleware/teckziteUserMiddleware";
 import { RequestHandler } from "express";
 import { addUserAnswers } from "../controllers/addUserAnswers";
+import { addBingoQuestions } from "../controllers/addBingoQuestions";
+import { evaluateScore, getTop30Scores } from "../controllers/evaluateScore";
 
 const teckziteRouter = express.Router();
 
@@ -19,5 +21,8 @@ const router = express.Router();
 teckziteRouter.post("/bingo",isTeckziteUser as RequestHandler,addUserAnswers as RequestHandler );
 
 
+teckziteRouter.post("/addBingoQuestions",addBingoQuestions as RequestHandler );
+teckziteRouter.post("/evaluate",evaluateScore as RequestHandler);
+teckziteRouter.post("/getTop30",getTop30Scores as RequestHandler);
 
 export default teckziteRouter;

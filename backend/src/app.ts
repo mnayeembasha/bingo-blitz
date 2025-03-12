@@ -4,26 +4,27 @@ import mongoose from "mongoose";
 import cors from "cors";
 import { MONGO_URL, PORT } from "./config";
 import teckziteRouter from "./routes/teckziteRoutes";
+import { evaluateScore } from "./controllers/evaluateScore";
 
 
 const app: express.Application = express();
 
-const allowedOrigins = ["http://localhost:5173", "https://bingo-blitz.vercel.app"];
+// const allowedOrigins = ["http://localhost:5173", "https://bingo-blitz.vercel.app"];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
 
 app.use(express.json());
@@ -54,6 +55,7 @@ mongoose
   .connect(MONGO_URL || "mongodb://localhost:27017/coding-competition")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
 
 
 app.listen(PORT, () => {

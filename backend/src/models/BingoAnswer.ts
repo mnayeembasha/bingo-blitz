@@ -8,6 +8,7 @@ export interface IBingoAnswer extends Document {
     option: number;
     answer: string;
   }[];
+  noOfCorrectAnswers:number;
   submittedAt: Date;
 }
 
@@ -28,6 +29,10 @@ const bingoAnswerSchema = new Schema<IBingoAnswer>({
       answer: { type: String, required: true }
     }
   ],
+  noOfCorrectAnswers:{
+    type:Number,
+    default:0
+  },
   submittedAt: { type: Date, default: Date.now }
 }, { timestamps: true });
 
