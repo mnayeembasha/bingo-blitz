@@ -23,7 +23,7 @@ const loginSchema = z.object({
 type LoginForm = z.infer<typeof loginSchema>;
 
 const LoginPage: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [loading, setLoading] = useRecoilState(loaderAtom);
   const setAuthToken = useSetRecoilState(tokenAtom);
   const [user, setUser] = useRecoilState(userAtom);
@@ -50,6 +50,7 @@ const LoginPage: React.FC = () => {
       localStorage.setItem("token", token);
       setAuthToken(token);
       setUser({ teckziteId });
+      localStorage.setItem("user",JSON.stringify({teckziteId}));
 
       customizedToast({ type: "success", position: "top-center", message });
       const redirectPath = localStorage.getItem("redirectPath") || "/";

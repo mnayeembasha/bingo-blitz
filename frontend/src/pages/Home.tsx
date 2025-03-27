@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Brain, Clock, Trophy } from 'lucide-react';
+import { Brain, Clock, Trophy, UserCircle } from 'lucide-react';
 import BingoBoard from '../components/BingoBoard.tsx';
 import QuestionPanel from '../components/QuestionPanel.tsx';
 import { generateBingoBoard, checkForBingo } from '../utils/bingoUtils.ts';
 import { questions } from '../data/questions.ts';
 import { Question } from '../types/index.ts';
+import { useRecoilValue } from 'recoil';
+import { userAtom } from '../store/atoms/index.ts';
 
 function Homepage() {
+  const user = useRecoilValue(userAtom);
   const [board, setBoard] = useState(generateBingoBoard());
   const [selectedCell, setSelectedCell] = useState<number | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState<Question|null>(null);
@@ -82,15 +85,16 @@ function Homepage() {
   }, [timer]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+    <div className="min-h-screen flex bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
       <header className="p-4 flex justify-between items-center border-b border-indigo-700">
         <div className="flex items-center gap-2">
           <Brain className="h-8 w-8" />
           <h1 className="text-2xl font-bold">DSA Bingo Challenge</h1>
         </div>
+        <div>{user && <div className="flex gap-2"><UserCircle/>{user.teckziteId}</div>}</div>
       </header>
 
-      <main className="container mx-auto p-4 md:p-8">
+      <main className="flex-1 container mx-auto p-4 md:p-8">
         {!gameStarted ? (
           <div className="max-w-2xl mx-auto bg-indigo-800 bg-opacity-50 rounded-lg p-8 text-center">
             <h2 className="text-3xl font-bold mb-4">Welcome to DSA Bingo!</h2>
